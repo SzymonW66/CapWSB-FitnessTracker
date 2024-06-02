@@ -7,19 +7,20 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-@Slf4j
 class UserServiceImpl implements UserService, UserProvider {
 
     private final UserRepository userRepository;
 
     @Override
     public User createUser(final User user) {
-        log.info("Creating User {}", user);
+        System.out.println("Tworzenie użytkownika");
         if (user.getId() != null) {
             throw new IllegalArgumentException("User has already DB ID, update is not permitted!");
         }
@@ -32,13 +33,37 @@ class UserServiceImpl implements UserService, UserProvider {
     }
 
     @Override
-    public Optional<User> getUserByEmail(final String email) {
+    public List<User> getUserByEmail(final String email) {
         return userRepository.findByEmail(email);
+    }
+
+    public List<User> getUsersOlderThanProvided(final LocalDate time) {
+        final List<User> olderUsers = new ArrayList<>();
+        final List<User> allUsers = userRepository.findAll();
+        if(!allUsers.isEmpty()) {
+            allUsers.forEach(user -> {
+                if(user.getBirthdate().isBefore(time)) {
+                    olderUsers.add(user);
+                }
+            });
+        }
+        return olderUsers;
     }
 
     @Override
     public List<User> findAllUsers() {
         return userRepository.findAll();
+    }
+
+    @Override
+    public void deleteUser(final Long userId) {
+        userRepository.findById(userId).ifPresent(userRepository::delete);
+    }
+
+    @Override
+    public User updateUser(User user, Long id) {
+        user.setId(id);
+        return userRepository.save(user);
     }
 
 }
