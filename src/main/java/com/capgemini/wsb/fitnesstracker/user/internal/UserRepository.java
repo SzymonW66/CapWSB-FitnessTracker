@@ -18,11 +18,6 @@ interface UserRepository extends JpaRepository<User, Long> {
      * @param email email of the user to search
      * @return {@link Optional} containing found user or {@link Optional#empty()} if none matched
      */
-//    default Optional<User> findByEmail(String email) {
-//        return findAll().stream()
-//                        .filter(user -> Objects.equals(user.getEmail(), email))
-//                        .findFirst();
-//    }
 
     @Query("SELECT user FROM User user WHERE LOWER(user.email) LIKE LOWER(concat('%', :emailFragment, '%'))")
     List<User> findUserIdsAndEmailsByEmail(@Param("email") String email);

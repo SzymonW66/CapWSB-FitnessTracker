@@ -34,7 +34,7 @@ public class TrainingMapper {
                 trainingTO.getStart(),
                 trainingTO.getEnd(),
                 trainingTO.getActivityType(),
-                trainingTO.getDostance(),
+                trainingTO.getDistance(),
                 trainingTO.getAvgSpeed());
     }
 
@@ -45,7 +45,7 @@ public class TrainingMapper {
                 newTrainingDTO.getStart(),
                 newTrainingDTO.getEnd(),
                 newTrainingDTO.getActivityType(),
-                newTrainingDTO.getDostance(),
+                newTrainingDTO.getDistance(),
                 newTrainingDTO.getAvgSpeed()
                 );
     }

@@ -1,0 +1,2122 @@
+{
+	"info": {
+		"_postman_id": "6d7e8fe2-7c14-4c78-a141-b976aedddf15",
+		"name": "OpenAPI definition",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26054923"
+	},
+	"item": [
+		{
+			"name": "wsb",
+			"item": [
+				{
+					"name": "trainings",
+					"item": [
+						{
+							"name": "{userId}",
+							"item": [
+								{
+									"name": "get Training By User Id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/wsb/trainings/:userId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"wsb",
+												"trainings",
+												":userId"
+											],
+											"variable": [
+												{
+													"key": "userId",
+													"value": "<long>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/wsb/trainings/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"wsb",
+														"trainings",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"id\": \"<long>\",\n    \"user\": {\n      \"Id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"birthdate\": \"<date>\",\n      \"email\": \"<string>\"\n    },\n    \"endTime\": \"<dateTime>\",\n    \"startTime\": \"<dateTime>\",\n    \"distance\": \"<double>\",\n    \"averageSpeed\": \"<double>\",\n    \"activityType\": \"TENNIS\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"user\": {\n      \"Id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"birthdate\": \"<date>\",\n      \"email\": \"<string>\"\n    },\n    \"endTime\": \"<dateTime>\",\n    \"startTime\": \"<dateTime>\",\n    \"distance\": \"<double>\",\n    \"averageSpeed\": \"<double>\",\n    \"activityType\": \"CYCLING\"\n  }\n]"
+										},
+										{
+											"name": "get Training By User Id",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/wsb/trainings/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"wsb",
+														"trainings",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId",
+															"value": "1"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 06 Jun 2024 17:22:18 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "[\n    {\n        \"id\": 1,\n        \"user\": {\n            \"Id\": 1,\n            \"firstName\": \"SzymoN\",\n            \"lastName\": \"WajS\",\n            \"birthdate\": \"2000-01-13\",\n            \"email\": \"szymon.wajs@gmail.com\"\n        },\n        \"endTime\": \"2024-06-10T00:00:00.000+00:00\",\n        \"startTime\": \"2024-06-06T00:00:00.000+00:00\",\n        \"distance\": 10,\n        \"averageSpeed\": 10,\n        \"activityType\": \"CYCLING\"\n    }\n]"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "{trainingId}",
+							"item": [
+								{
+									"name": "update Training",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"userDto\": {\n    \"Id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"birthdate\": \"<date>\",\n    \"email\": \"<string>\"\n  },\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"activityType\": \"CYCLING\",\n  \"distance\": \"<double>\",\n  \"avgSpeed\": \"<double>\",\n  \"id\": \"<long>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/wsb/trainings/:trainingId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"wsb",
+												"trainings",
+												":trainingId"
+											],
+											"variable": [
+												{
+													"key": "trainingId",
+													"value": "<long>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"userDto\": {\n    \"Id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"birthdate\": \"<date>\",\n    \"email\": \"<string>\"\n  },\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"activityType\": \"CYCLING\",\n  \"distance\": \"<double>\",\n  \"avgSpeed\": \"<double>\",\n  \"id\": \"<long>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/wsb/trainings/:trainingId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"wsb",
+														"trainings",
+														":trainingId"
+													],
+													"variable": [
+														{
+															"key": "trainingId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<long>\",\n  \"user\": {\n    \"Id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"birthdate\": \"<date>\",\n    \"email\": \"<string>\"\n  },\n  \"endTime\": \"<dateTime>\",\n  \"startTime\": \"<dateTime>\",\n  \"distance\": \"<double>\",\n  \"averageSpeed\": \"<double>\",\n  \"activityType\": \"RUNNING\"\n}"
+										},
+										{
+											"name": "update Training",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"userDto\": {\n    \"Id\": \"1\",\n    \"firstName\": \"SzymoN\",\n    \"lastName\": \"WajS\",\n    \"birthdate\": \"2000-01-13\",\n    \"email\": \"szymon.wajs@gmail.com\"\n  },\n  \"start\": \"2024-06-06\",\n  \"end\": \"2024-06-10\",\n  \"activityType\": \"CYCLING\",\n  \"distance\": \"30\",\n  \"avgSpeed\": \"30\",\n  \"id\": \"1\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/wsb/trainings/:trainingId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"wsb",
+														"trainings",
+														":trainingId"
+													],
+													"variable": [
+														{
+															"key": "trainingId",
+															"value": "1"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 06 Jun 2024 17:24:07 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"id\": 1,\n    \"user\": {\n        \"Id\": 1,\n        \"firstName\": \"SzymoN\",\n        \"lastName\": \"WajS\",\n        \"birthdate\": \"2000-01-13\",\n        \"email\": \"szymon.wajs@gmail.com\"\n    },\n    \"endTime\": \"2024-06-10T00:00:00.000+00:00\",\n    \"startTime\": \"2024-06-06T00:00:00.000+00:00\",\n    \"distance\": 30,\n    \"averageSpeed\": 30,\n    \"activityType\": \"CYCLING\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "create",
+							"item": [
+								{
+									"name": "add Training",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"userDto\": {\n    \"Id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"birthdate\": \"<date>\",\n    \"email\": \"<string>\"\n  },\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"activityType\": \"CYCLING\",\n  \"distance\": \"<double>\",\n  \"avgSpeed\": \"<double>\",\n  \"id\": \"<long>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/wsb/trainings/create",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"wsb",
+												"trainings",
+												"create"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"userDto\": {\n    \"Id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"birthdate\": \"<date>\",\n    \"email\": \"<string>\"\n  },\n  \"start\": \"<dateTime>\",\n  \"end\": \"<dateTime>\",\n  \"activityType\": \"CYCLING\",\n  \"distance\": \"<double>\",\n  \"avgSpeed\": \"<double>\",\n  \"id\": \"<long>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/wsb/trainings/create",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"wsb",
+														"trainings",
+														"create"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<long>\",\n  \"user\": {\n    \"Id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"birthdate\": \"<date>\",\n    \"email\": \"<string>\"\n  },\n  \"endTime\": \"<dateTime>\",\n  \"startTime\": \"<dateTime>\",\n  \"distance\": \"<double>\",\n  \"averageSpeed\": \"<double>\",\n  \"activityType\": \"RUNNING\"\n}"
+										},
+										{
+											"name": "add Training",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"userDto\": {\n    \"Id\": \"1\",\n    \"firstName\": \"SzymoN\",\n    \"lastName\": \"WajS\",\n    \"birthdate\": \"2000-01-13\",\n    \"email\": \"szymon.wajs@gmail.com\"\n  },\n  \"start\": \"2024-06-06\",\n  \"end\": \"2024-06-10\",\n  \"activityType\": \"CYCLING\",\n  \"distance\": \"10\",\n  \"avgSpeed\": \"10\",\n  \"id\": \"1\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/wsb/trainings/create",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"wsb",
+														"trainings",
+														"create"
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Location",
+													"value": "/wsb/trainings/train/1"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 06 Jun 2024 17:20:54 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"id\": 1,\n    \"user\": {\n        \"Id\": 1,\n        \"firstName\": \"SzymoN\",\n        \"lastName\": \"WajS\",\n        \"birthdate\": \"2000-01-13\",\n        \"email\": \"szymon.wajs@gmail.com\"\n    },\n    \"endTime\": \"2024-06-10T00:00:00.000+00:00\",\n    \"startTime\": \"2024-06-06T00:00:00.000+00:00\",\n    \"distance\": 10,\n    \"averageSpeed\": 10,\n    \"activityType\": \"CYCLING\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "completed",
+							"item": [
+								{
+									"name": "{endDate}",
+									"item": [
+										{
+											"name": "get Completed Trainings",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/wsb/trainings/completed/:endDate",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"wsb",
+														"trainings",
+														"completed",
+														":endDate"
+													],
+													"variable": [
+														{
+															"key": "endDate",
+															"value": "<dateTime>"
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/wsb/trainings/completed/:endDate",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"wsb",
+																"trainings",
+																"completed",
+																":endDate"
+															],
+															"variable": [
+																{
+																	"key": "endDate"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "*/*"
+														}
+													],
+													"cookie": [],
+													"body": "[\n  {\n    \"id\": \"<long>\",\n    \"user\": {\n      \"Id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"birthdate\": \"<date>\",\n      \"email\": \"<string>\"\n    },\n    \"endTime\": \"<dateTime>\",\n    \"startTime\": \"<dateTime>\",\n    \"distance\": \"<double>\",\n    \"averageSpeed\": \"<double>\",\n    \"activityType\": \"TENNIS\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"user\": {\n      \"Id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"birthdate\": \"<date>\",\n      \"email\": \"<string>\"\n    },\n    \"endTime\": \"<dateTime>\",\n    \"startTime\": \"<dateTime>\",\n    \"distance\": \"<double>\",\n    \"averageSpeed\": \"<double>\",\n    \"activityType\": \"CYCLING\"\n  }\n]"
+												},
+												{
+													"name": "get Completed Trainings",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "*/*"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/wsb/trainings/completed/:endDate",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"wsb",
+																"trainings",
+																"completed",
+																":endDate"
+															],
+															"variable": [
+																{
+																	"key": "endDate",
+																	"value": "2024-06-10T00:00:00.000+00:00"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Disposition",
+															"value": "inline;filename=f.txt"
+														},
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														},
+														{
+															"key": "Transfer-Encoding",
+															"value": "chunked"
+														},
+														{
+															"key": "Date",
+															"value": "Thu, 06 Jun 2024 17:21:57 GMT"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=60"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														}
+													],
+													"cookie": [],
+													"body": "[\n    {\n        \"id\": 1,\n        \"user\": {\n            \"Id\": 1,\n            \"firstName\": \"SzymoN\",\n            \"lastName\": \"WajS\",\n            \"birthdate\": \"2000-01-13\",\n            \"email\": \"szymon.wajs@gmail.com\"\n        },\n        \"endTime\": \"2024-06-10T00:00:00.000+00:00\",\n        \"startTime\": \"2024-06-06T00:00:00.000+00:00\",\n        \"distance\": 10,\n        \"averageSpeed\": 10,\n        \"activityType\": \"CYCLING\"\n    }\n]"
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "all",
+							"item": [
+								{
+									"name": "get All Trainings",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/wsb/trainings/all",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"wsb",
+												"trainings",
+												"all"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/wsb/trainings/all",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"wsb",
+														"trainings",
+														"all"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"id\": \"<long>\",\n    \"user\": {\n      \"Id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"birthdate\": \"<date>\",\n      \"email\": \"<string>\"\n    },\n    \"endTime\": \"<dateTime>\",\n    \"startTime\": \"<dateTime>\",\n    \"distance\": \"<double>\",\n    \"averageSpeed\": \"<double>\",\n    \"activityType\": \"TENNIS\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"user\": {\n      \"Id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"birthdate\": \"<date>\",\n      \"email\": \"<string>\"\n    },\n    \"endTime\": \"<dateTime>\",\n    \"startTime\": \"<dateTime>\",\n    \"distance\": \"<double>\",\n    \"averageSpeed\": \"<double>\",\n    \"activityType\": \"CYCLING\"\n  }\n]"
+										},
+										{
+											"name": "get All Trainings",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/wsb/trainings/all",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"wsb",
+														"trainings",
+														"all"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 06 Jun 2024 17:21:05 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "[\n    {\n        \"id\": 1,\n        \"user\": {\n            \"Id\": 1,\n            \"firstName\": \"SzymoN\",\n            \"lastName\": \"WajS\",\n            \"birthdate\": \"2000-01-13\",\n            \"email\": \"szymon.wajs@gmail.com\"\n        },\n        \"endTime\": \"2024-06-10T00:00:00.000+00:00\",\n        \"startTime\": \"2024-06-06T00:00:00.000+00:00\",\n        \"distance\": 10,\n        \"averageSpeed\": 10,\n        \"activityType\": \"CYCLING\"\n    }\n]"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "activityType",
+							"item": [
+								{
+									"name": "get Trainings For Activity Type",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/wsb/trainings/activityType?activityType=CYCLING",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"wsb",
+												"trainings",
+												"activityType"
+											],
+											"query": [
+												{
+													"key": "activityType",
+													"value": "CYCLING",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/wsb/trainings/activityType?activityType=CYCLING",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"wsb",
+														"trainings",
+														"activityType"
+													],
+													"query": [
+														{
+															"key": "activityType",
+															"value": "CYCLING",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"id\": \"<long>\",\n    \"user\": {\n      \"Id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"birthdate\": \"<date>\",\n      \"email\": \"<string>\"\n    },\n    \"endTime\": \"<dateTime>\",\n    \"startTime\": \"<dateTime>\",\n    \"distance\": \"<double>\",\n    \"averageSpeed\": \"<double>\",\n    \"activityType\": \"TENNIS\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"user\": {\n      \"Id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"birthdate\": \"<date>\",\n      \"email\": \"<string>\"\n    },\n    \"endTime\": \"<dateTime>\",\n    \"startTime\": \"<dateTime>\",\n    \"distance\": \"<double>\",\n    \"averageSpeed\": \"<double>\",\n    \"activityType\": \"CYCLING\"\n  }\n]"
+										},
+										{
+											"name": "get Trainings For Activity Type",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/wsb/trainings/activityType?activityType=CYCLING",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"wsb",
+														"trainings",
+														"activityType"
+													],
+													"query": [
+														{
+															"key": "activityType",
+															"value": "CYCLING",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 06 Jun 2024 17:21:14 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "[\n    {\n        \"id\": 1,\n        \"user\": {\n            \"Id\": 1,\n            \"firstName\": \"SzymoN\",\n            \"lastName\": \"WajS\",\n            \"birthdate\": \"2000-01-13\",\n            \"email\": \"szymon.wajs@gmail.com\"\n        },\n        \"endTime\": \"2024-06-10T00:00:00.000+00:00\",\n        \"startTime\": \"2024-06-06T00:00:00.000+00:00\",\n        \"distance\": 10,\n        \"averageSpeed\": 10,\n        \"activityType\": \"CYCLING\"\n    }\n]"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "get Trainings By Training Id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/wsb/trainings",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"wsb",
+										"trainings"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/wsb/trainings",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"wsb",
+												"trainings"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": \"<long>\",\n    \"user\": {\n      \"Id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"birthdate\": \"<date>\",\n      \"email\": \"<string>\"\n    },\n    \"endTime\": \"<dateTime>\",\n    \"startTime\": \"<dateTime>\",\n    \"distance\": \"<double>\",\n    \"averageSpeed\": \"<double>\",\n    \"activityType\": \"TENNIS\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"user\": {\n      \"Id\": \"<long>\",\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"birthdate\": \"<date>\",\n      \"email\": \"<string>\"\n    },\n    \"endTime\": \"<dateTime>\",\n    \"startTime\": \"<dateTime>\",\n    \"distance\": \"<double>\",\n    \"averageSpeed\": \"<double>\",\n    \"activityType\": \"CYCLING\"\n  }\n]"
+								},
+								{
+									"name": "get Trainings By Training Id",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/wsb/trainings/trainingId/:trainingId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"wsb",
+												"trainings",
+												"trainingId",
+												":trainingId"
+											],
+											"variable": [
+												{
+													"key": "trainingId",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 06 Jun 2024 17:36:06 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 1,\n        \"user\": {\n            \"Id\": 1,\n            \"firstName\": \"Szymon\",\n            \"lastName\": \"Wajs\",\n            \"birthdate\": \"2000-01-13\",\n            \"email\": \"szymekwajs@gmail.com\"\n        },\n        \"endTime\": \"2024-06-10T00:00:00.000+00:00\",\n        \"startTime\": \"2024-06-06T00:00:00.000+00:00\",\n        \"distance\": 10,\n        \"averageSpeed\": 10,\n        \"activityType\": \"CYCLING\"\n    }\n]"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "v1",
+			"item": [
+				{
+					"name": "users",
+					"item": [
+						{
+							"name": "{userId}",
+							"item": [
+								{
+									"name": "get User",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/users/:userId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"users",
+												":userId"
+											],
+											"variable": [
+												{
+													"key": "userId",
+													"value": "<long>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/v1/users/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"users",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"Id\": \"<long>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"birthdate\": \"<date>\",\n  \"email\": \"<string>\"\n}"
+										},
+										{
+											"name": "get User",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/users/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"users",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId",
+															"value": "1"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 06 Jun 2024 17:18:04 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"Id\": 1,\n    \"firstName\": \"Szymon\",\n    \"lastName\": \"Wajs\",\n    \"birthdate\": \"2000-01-13\",\n    \"email\": \"szymekwajs@gmail.com\"\n}"
+										}
+									]
+								},
+								{
+									"name": "update User",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"Id\": \"<long>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"birthdate\": \"<date>\",\n  \"email\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/users/:userId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"users",
+												":userId"
+											],
+											"variable": [
+												{
+													"key": "userId",
+													"value": "<long>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"Id\": \"<long>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"birthdate\": \"<date>\",\n  \"email\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v1/users/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"users",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<long>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"birthdate\": \"<date>\",\n  \"email\": \"<string>\"\n}"
+										},
+										{
+											"name": "update User",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"Id\": \"1\",\n  \"firstName\": \"SzymoN\",\n  \"lastName\": \"WajS\",\n  \"birthdate\": \"2000-01-13\",\n  \"email\": \"szymon.wajs@gmail.com\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/v1/users/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"users",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId",
+															"value": "1"
+														}
+													]
+												}
+											},
+											"status": "Accepted",
+											"code": 202,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 06 Jun 2024 17:18:59 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"id\": 1,\n    \"firstName\": \"SzymoN\",\n    \"lastName\": \"WajS\",\n    \"birthdate\": \"2000-01-13\",\n    \"email\": \"szymon.wajs@gmail.com\"\n}"
+										}
+									]
+								},
+								{
+									"name": "delete User",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/users/:userId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"users",
+												":userId"
+											],
+											"variable": [
+												{
+													"key": "userId",
+													"value": "<long>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/v1/users/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"users",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "<long>"
+										},
+										{
+											"name": "delete User",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/users/:userId",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"users",
+														":userId"
+													],
+													"variable": [
+														{
+															"key": "userId",
+															"value": "2"
+														}
+													]
+												}
+											},
+											"status": "No Content",
+											"code": 204,
+											"_postman_previewlanguage": "plain",
+											"header": [
+												{
+													"key": "Date",
+													"value": "Thu, 06 Jun 2024 17:17:32 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": null
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "simple",
+							"item": [
+								{
+									"name": "get All Users",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/users/simple",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"users",
+												"simple"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/v1/users/simple",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"users",
+														"simple"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"Id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"birthdate\": \"<date>\",\n    \"email\": \"<string>\"\n  },\n  {\n    \"Id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"birthdate\": \"<date>\",\n    \"email\": \"<string>\"\n  }\n]"
+										},
+										{
+											"name": "get All Users",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/users/simple",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"users",
+														"simple"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 06 Jun 2024 17:16:44 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "[\n    {\n        \"Id\": 1,\n        \"firstName\": \"Szymon\",\n        \"lastName\": \"Wajs\",\n        \"birthdate\": \"2000-01-13\",\n        \"email\": \"szymekwajs@gmail.com\"\n    }\n]"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "older",
+							"item": [
+								{
+									"name": "{time}",
+									"item": [
+										{
+											"name": "get Users Older Than Given Age",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/users/older/:time",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"users",
+														"older",
+														":time"
+													],
+													"variable": [
+														{
+															"key": "time",
+															"value": "<date>"
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/v1/users/older/:time",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"users",
+																"older",
+																":time"
+															],
+															"variable": [
+																{
+																	"key": "time"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "*/*"
+														}
+													],
+													"cookie": [],
+													"body": "[\n  {\n    \"Id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"birthdate\": \"<date>\",\n    \"email\": \"<string>\"\n  },\n  {\n    \"Id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"birthdate\": \"<date>\",\n    \"email\": \"<string>\"\n  }\n]"
+												},
+												{
+													"name": "get Users Older Than Given Age",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "*/*"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v1/users/older/:time",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"users",
+																"older",
+																":time"
+															],
+															"variable": [
+																{
+																	"key": "time",
+																	"value": "2001-01-01"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														},
+														{
+															"key": "Transfer-Encoding",
+															"value": "chunked"
+														},
+														{
+															"key": "Date",
+															"value": "Thu, 06 Jun 2024 17:16:24 GMT"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=60"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														}
+													],
+													"cookie": [],
+													"body": "[\n    {\n        \"Id\": 1,\n        \"firstName\": \"Szymon\",\n        \"lastName\": \"Wajs\",\n        \"birthdate\": \"2000-01-13\",\n        \"email\": \"szymekwajs@gmail.com\"\n    }\n]"
+												},
+												{
+													"name": "get Users Older Than Given Age",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "*/*"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/v1/users/older/:time",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"v1",
+																"users",
+																"older",
+																":time"
+															],
+															"variable": [
+																{
+																	"key": "time",
+																	"value": "1999-01-01"
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														},
+														{
+															"key": "Transfer-Encoding",
+															"value": "chunked"
+														},
+														{
+															"key": "Date",
+															"value": "Thu, 06 Jun 2024 17:16:35 GMT"
+														},
+														{
+															"key": "Keep-Alive",
+															"value": "timeout=60"
+														},
+														{
+															"key": "Connection",
+															"value": "keep-alive"
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"timestamp\": \"2024-06-06T17:16:35.515+00:00\",\n    \"status\": 404,\n    \"error\": \"Not Found\",\n    \"path\": \"/v1/users/older/1999-01-01\"\n}"
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "email",
+							"item": [
+								{
+									"name": "get By Email",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/users/email?email=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"users",
+												"email"
+											],
+											"query": [
+												{
+													"key": "email",
+													"value": "<string>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/v1/users/email?email=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"users",
+														"email"
+													],
+													"query": [
+														{
+															"key": "email",
+															"value": "<string>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"Id\": \"<long>\",\n    \"email\": \"<string>\"\n  },\n  {\n    \"Id\": \"<long>\",\n    \"email\": \"<string>\"\n  }\n]"
+										},
+										{
+											"name": "get By Email",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/users/email?email=szymekwajs@gmail.com",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"users",
+														"email"
+													],
+													"query": [
+														{
+															"key": "email",
+															"value": "szymekwajs@gmail.com",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 06 Jun 2024 17:16:00 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "[\n    {\n        \"Id\": 1,\n        \"email\": \"szymekwajs@gmail.com\"\n    }\n]"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "all",
+							"item": [
+								{
+									"name": "get All Users Details",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/v1/users/all",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"users",
+												"all"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/v1/users/all",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"users",
+														"all"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"Id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"birthdate\": \"<date>\",\n    \"email\": \"<string>\"\n  },\n  {\n    \"Id\": \"<long>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"birthdate\": \"<date>\",\n    \"email\": \"<string>\"\n  }\n]"
+										},
+										{
+											"name": "get All Users Details",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/v1/users/all",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"v1",
+														"users",
+														"all"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 06 Jun 2024 17:15:23 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "[\n    {\n        \"Id\": 1,\n        \"firstName\": \"Szymon\",\n        \"lastName\": \"Wajs\",\n        \"birthdate\": \"2000-01-13\",\n        \"email\": \"szymekwajs@gmail.com\"\n    }\n]"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "add User",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"Id\": \"<long>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"birthdate\": \"<date>\",\n  \"email\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/v1/users",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"v1",
+										"users"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"Id\": \"<long>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"birthdate\": \"<date>\",\n  \"email\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/users",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"users"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"id\": \"<long>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"birthdate\": \"<date>\",\n  \"email\": \"<string>\"\n}"
+								},
+								{
+									"name": "add User",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"Id\": \"1\",\n  \"firstName\": \"Szymon\",\n  \"lastName\": \"Wajs\",\n  \"birthdate\": \"2000-01-13\",\n  \"email\": \"szymekwajs@gmail.com\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/users",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"users"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 06 Jun 2024 17:15:13 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": 1,\n    \"firstName\": \"Szymon\",\n    \"lastName\": \"Wajs\",\n    \"birthdate\": \"2000-01-13\",\n    \"email\": \"szymekwajs@gmail.com\"\n}"
+								},
+								{
+									"name": "add User",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"Id\": \"2\",\n  \"firstName\": \"Szymon2\",\n  \"lastName\": \"Wajs2\",\n  \"birthdate\": \"2002-01-13\",\n  \"email\": \"szymekwajs2@gmail.com\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/v1/users",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"v1",
+												"users"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 06 Jun 2024 17:17:22 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"id\": 2,\n    \"firstName\": \"Szymon2\",\n    \"lastName\": \"Wajs2\",\n    \"birthdate\": \"2002-01-13\",\n    \"email\": \"szymekwajs2@gmail.com\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8081"
+		}
+	]
+}

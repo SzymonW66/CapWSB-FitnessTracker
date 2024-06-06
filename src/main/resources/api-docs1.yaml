@@ -1,0 +1,393 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- url: http://localhost:8081
+  description: Generated server url
+paths:
+  /wsb/trainings/{trainingId}:
+    put:
+      tags:
+      - training-controller
+      operationId: updateTraining
+      parameters:
+      - name: trainingId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewTrainingDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/TrainingDTO'
+  /v1/users/{userId}:
+    get:
+      tags:
+      - user-controller
+      operationId: getUser
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/UserDTO'
+    put:
+      tags:
+      - user-controller
+      operationId: updateUser
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/User'
+    delete:
+      tags:
+      - user-controller
+      operationId: deleteUser
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: integer
+                format: int64
+  /wsb/trainings/create:
+    post:
+      tags:
+      - training-controller
+      operationId: addTraining
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewTrainingDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/TrainingDTO'
+  /v1/users:
+    post:
+      tags:
+      - user-controller
+      operationId: addUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/User'
+  /wsb/trainings:
+    get:
+      tags:
+      - training-controller
+      operationId: getTrainingsByTrainingId
+      parameters: []
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TrainingDTO'
+  /wsb/trainings/{userId}:
+    get:
+      tags:
+      - training-controller
+      operationId: getTrainingByUserId
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TrainingDTO'
+  /wsb/trainings/completed/{endDate}:
+    get:
+      tags:
+      - training-controller
+      operationId: getCompletedTrainings
+      parameters:
+      - name: endDate
+        in: path
+        required: true
+        schema:
+          type: string
+          format: date-time
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TrainingDTO'
+  /wsb/trainings/all:
+    get:
+      tags:
+      - training-controller
+      operationId: getAllTrainings
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TrainingDTO'
+  /wsb/trainings/activityType:
+    get:
+      tags:
+      - training-controller
+      operationId: getTrainingsForActivityType
+      parameters:
+      - name: activityType
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - RUNNING
+          - CYCLING
+          - WALKING
+          - SWIMMING
+          - TENNIS
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TrainingDTO'
+  /v1/users/simple:
+    get:
+      tags:
+      - user-controller
+      operationId: getAllUsers
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserDTO'
+  /v1/users/older/{time}:
+    get:
+      tags:
+      - user-controller
+      operationId: getUsersOlderThanGivenAge
+      parameters:
+      - name: time
+        in: path
+        required: true
+        schema:
+          type: string
+          format: date
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserDTO'
+  /v1/users/email:
+    get:
+      tags:
+      - user-controller
+      operationId: getByEmail
+      parameters:
+      - name: email
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserEmailDTO'
+  /v1/users/all:
+    get:
+      tags:
+      - user-controller
+      operationId: getAllUsersDetails
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserDTO'
+components:
+  schemas:
+    NewTrainingDTO:
+      type: object
+      properties:
+        userDto:
+          $ref: '#/components/schemas/UserDTO'
+        start:
+          type: string
+          format: date-time
+        end:
+          type: string
+          format: date-time
+        activityType:
+          type: string
+          enum:
+          - RUNNING
+          - CYCLING
+          - WALKING
+          - SWIMMING
+          - TENNIS
+        distance:
+          type: number
+          format: double
+        avgSpeed:
+          type: number
+          format: double
+        id:
+          type: integer
+          format: int64
+    UserDTO:
+      type: object
+      properties:
+        Id:
+          type: integer
+          format: int64
+        firstName:
+          type: string
+        lastName:
+          type: string
+        birthdate:
+          type: string
+          format: date
+        email:
+          type: string
+    TrainingDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        user:
+          $ref: '#/components/schemas/UserDTO'
+        endTime:
+          type: string
+          format: date-time
+        startTime:
+          type: string
+          format: date-time
+        distance:
+          type: number
+          format: double
+        averageSpeed:
+          type: number
+          format: double
+        activityType:
+          type: string
+          enum:
+          - RUNNING
+          - CYCLING
+          - WALKING
+          - SWIMMING
+          - TENNIS
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        firstName:
+          type: string
+        lastName:
+          type: string
+        birthdate:
+          type: string
+          format: date
+        email:
+          type: string
+    UserEmailDTO:
+      type: object
+      properties:
+        Id:
+          type: integer
+          format: int64
+        email:
+          type: string

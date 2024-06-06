@@ -10,8 +10,6 @@ import java.util.Date;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
 @Data
 public class NewTrainingDTO {
     private Long Id;
@@ -19,6 +17,6 @@ public class NewTrainingDTO {
     private Date start;
     private Date end;
     private ActivityType activityType;
-    private double dostance;
+    private double distance;
     private double avgSpeed;
 }

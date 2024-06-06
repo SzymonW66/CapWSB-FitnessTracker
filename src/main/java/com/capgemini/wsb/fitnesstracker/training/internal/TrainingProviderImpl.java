@@ -8,23 +8,21 @@ import com.capgemini.wsb.fitnesstracker.user.api.UserProvider;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
-public class TrainingServiceImpl implements TrainingProvider {
+public class TrainingProviderImpl implements TrainingProvider {
 
     private final TrainingRepository trainingRepository;
     private final UserProvider userProvider;
     private final TrainingMapper trainingMapper;
 
     @Override
-    public Optional<User> getTrainingById(Long trainingId) {
-        throw new UnsupportedOperationException("Not finished");
+    public Optional<Training> getTraining(Long trainingId) {
+        return trainingRepository.findById(trainingId);
     }
 
     @Override
@@ -33,7 +31,7 @@ public class TrainingServiceImpl implements TrainingProvider {
     }
 
     @Override
-    public List<Training> getTrainingsByUserId(Long trainingId) {
+    public List<Training> findAllForUserId(Long trainingId) {
         return trainingRepository.findAll().stream().filter(
                 training -> training.getUser().getId().equals(trainingId)).collect(Collectors.toList());
     }
