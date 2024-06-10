@@ -81,4 +81,15 @@ public class TrainingController {
         return ResponseEntity.ok(responseDTO);
     }
 
+    @GetMapping("/distance/{distance}")
+    public ResponseEntity <List<TrainingDTO>> getTrainingsByDistance(@PathVariable ("distance") double distance){
+        List<TrainingDTO> findAllByDistance = trainingRepository
+                .findAll().stream().filter(training -> training.getDistance() <= distance)
+                .map(trainingMapper::toTrainingDTO)
+                .collect(Collectors.toList());
+
+        return ResponseEntity.ok(findAllByDistance);
+    }
+
+
 }

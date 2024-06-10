@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
     /**
      * Query searching users by email address. It matches by exact match.
@@ -22,10 +22,9 @@ interface UserRepository extends JpaRepository<User, Long> {
     @Query("SELECT user FROM User user WHERE LOWER(user.email) LIKE LOWER(concat('%', :emailFragment, '%'))")
     List<User> findUserIdsAndEmailsByEmail(@Param("email") String email);
 
-    @Query("SELECT user FROM User user WHERE user.birthdate < :maxBirthdate")
-    List<User> findUsersOlderThan(@Param("maxBirthdate") LocalDate maxBirthdate);
-
     @Query("SELECT user FROM User user WHERE LOWER(user.email) LIKE LOWER(concat('%', ?1, '%'))")
     List<User> findByEmail(final String email);
 
+    @Query("SELECT user FROM User user WHERE user.birthdate < :maxBirthdate")
+    List<User> findUsersOlderThan(@Param("maxBirthdate") LocalDate maxBirthdate);
 }

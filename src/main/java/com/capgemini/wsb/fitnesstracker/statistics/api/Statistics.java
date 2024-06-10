@@ -8,7 +8,7 @@ import lombok.*;
 @Table(name = "statistics")
 @Getter
 @Setter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 @ToString
 public class Statistics {
 

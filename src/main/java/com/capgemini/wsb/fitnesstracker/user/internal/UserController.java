@@ -21,6 +21,7 @@ class UserController {
 
     private final UserServiceImpl userService;
     private final UserMapper userMapper;
+    private final UserRepository userRepository;
 
     @GetMapping("/simple")
     public ResponseEntity<List<UserDTO>> getAllUsers() {
@@ -70,6 +71,19 @@ class UserController {
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.createUser(userMapper.toEntity(userDto)));
     }
 
+    @GetMapping("/older-than/{age}")
+    final ResponseEntity<List<UserDTO>> getUserOlderThan(@PathVariable LocalDate time) {
+        final List<User> ageUsers = userRepository.findUsersOlderThan(time);
+        if (ageUsers.isEmpty()) {
+            throw new UserNotFoundException("User not found");
+        }
+        return ResponseEntity.ok(ageUsers.stream().map(userMapper::toDto).collect(Collectors.toList()));
+    }
+
+    @PutMapping("/{userId}")
+    public ResponseEntity<User> updateUser(@PathVariable Long userId, @RequestBody UserDTO changedUser) {
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(userService.updateUser(userMapper.saveEntity(changedUser), userId));
+    }
 
     @GetMapping("/older/{time}")
     public ResponseEntity<List<UserDTO>> getUsersOlderThanGivenAge(@PathVariable LocalDate time) {
@@ -78,10 +92,5 @@ class UserController {
             throw new UserNotFoundException("User not found");
         }
         return ResponseEntity.ok(olderUsers.stream().map(userMapper::toDto).collect(Collectors.toList()));
-    }
-
-    @PutMapping("/{userId}")
-    public ResponseEntity<User> updateUser(@PathVariable Long userId, @RequestBody UserDTO changedUser) {
-        return ResponseEntity.status(HttpStatus.ACCEPTED).body(userService.updateUser(userMapper.saveEntity(changedUser), userId));
     }
 }

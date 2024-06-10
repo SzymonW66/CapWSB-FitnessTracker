@@ -12,4 +12,5 @@ public interface TrainingRepository extends JpaRepository<Training, Long> {
     List<Training> findByEndTimeAfter(Date endTime);
 
     List<Training> findByActivityType(ActivityType activityType);
+
 }
